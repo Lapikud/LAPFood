@@ -9,6 +9,9 @@ import json
 from backend.facebook.parser import FBParser
 
 app = Flask(__name__)
+app.config['RESTFUL_JSON'] = {
+    'ensure_ascii': False
+}
 api = Api(app)
 
 # http://preview.risevision.com/Viewer.html?type=presentation&id=269cbe4e-4b35-4e4e-9f39-8cac09f29202
