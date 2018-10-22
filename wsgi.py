@@ -24,15 +24,22 @@ class BitStop(Resource):
     def get(self):
         parser = FBParser()
         response = parser.get_fb_post(sub_url="/bitstopkohvik/posts/")
-        # data = json.loads(response)
-        print(response)
         return {"bitstop": response}
         
-    
     def post(self):
         pass
 
-api.add_resource(BitStop, '/bitstop')
+class Rahvatoit(Resource):
+    def get(self):
+        parser = FBParser()
+        response = parser.get_fb_post(sub_url="/rahvatoitttu/posts/")
+        return {"rahvatoit": response}
+        
+    def post(self):
+        pass
+
+api.add_resource(BitStop, "/bitstop")
+api.add_resource(Rahvatoit, "/rahvatoit")
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
