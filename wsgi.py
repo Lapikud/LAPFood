@@ -62,8 +62,9 @@ class AllMenus(Resource):
         # testing out if auto commit works 5
         return {"Bitstop" : bitstopmenu,
                 "Rahvatoit": rahvatoitmenu,
-                "IT Daily": itdailymenu,
-                "VI korpuse Daily": vikorpusdailymenu}
+                "IT Daily": itdailymenu
+                #"VI korpuse Daily": vikorpusdailymenu
+                }
     def post(self):
         pass
 
