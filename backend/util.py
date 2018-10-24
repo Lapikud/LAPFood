@@ -5,6 +5,8 @@ import os
 import time
 from datetime import datetime
 
+
+
 class MLStripper(HTMLParser):
     def __init__(self):
         self.reset()
@@ -24,22 +26,24 @@ def strip_tags(html):
     s.feed(html)
     return s.get_data()
 
-def download_pdf(url, filepath):
-    return urllib.request.urlretrieve(url, filepath)
+def download_pdf(url, file_path):
+    return urllib.request.urlretrieve(url, file_path)
 
-def up_to_date_file_exists(path):
-    if os.path.exists(path):
-        modified_time = datetime.fromtimestamp(os.path.getmtime(path))
+def up_to_date_file_exists(data_path, file_path):
+    if not os.path.exists(data_path):
+        os.makedirs(data_path)
+
+    if os.path.exists(data_path + file_path):
+        modified_time = datetime.fromtimestamp(os.path.getmtime(data_path + file_path))
         now = datetime.now()
         difference = now - modified_time
-        print(difference)
         if (difference.days < 1):
             return True
 
-def wait_until_file_exists(path):
-    while not os.path.exists(path):
+def wait_until_file_exists(data_path, file_path):
+    while not os.path.exists(data_path + file_path):
         time.sleep(1)
-    if os.path.isfile(path):
+    if os.path.isfile(data_path + file_path):
         return True
 
 def get_subprocess(unix_process, args):

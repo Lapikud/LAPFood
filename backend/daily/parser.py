@@ -4,8 +4,9 @@ import backend.util as util
 import re
 
 PDF_URL = "http://www.daily.ee/files/dn_daily_nadalamenuu_ttu_6_korpus.pdf"
-PDF_PATH = './data/vimenu.pdf'
-TXT_PATH = './data/vimenu.txt'
+DATA_PATH = './data/'
+PDF_PATH = 'vimenu.pdf'
+TXT_PATH = 'vimenu.txt'
 BEFORE_PRICE_PATTERN = '(?:(?!\d+\.\d+).)*'
 PRICE_PATTERN = '(\d{1,2}(\.|\,)\d+)|(\d{1,2}.-)'
 
@@ -28,12 +29,12 @@ class DailyParser():
         return stripped_data
 
     def get_pdfalt_menu(self, url):
-        if not util.up_to_date_file_exists(TXT_PATH):
-            util.download_pdf(PDF_URL, PDF_PATH)
-            if util.wait_until_file_exists(PDF_PATH):
-                proc = util.get_subprocess('pdftotext', ['-raw', PDF_PATH])
+        if not util.up_to_date_file_exists(DATA_PATH, TXT_PATH):
+            util.download_pdf(PDF_URL, DATA_PATH + PDF_PATH)
+            if util.wait_until_file_exists(DATA_PATH, PDF_PATH):
+                proc = util.get_subprocess('pdftotext', ['-raw', DATA_PATH + PDF_PATH])
 
-        if util.wait_until_file_exists(TXT_PATH):
+        if util.wait_until_file_exists(DATA_PATH, TXT_PATH):
             output = open('./data/vimenu.txt', 'r').readlines()
             return self.format_menu(output)
 
