@@ -59,7 +59,7 @@ class AllMenus(Resource):
         rahvatoitmenu = fbparser.get_fb_post(sub_url="/rahvatoitttu/posts/", numberOfPosts=1)
         itdailymenu = dailyparser.get_daily_menu("https://päevapakkumised.ee/tallinn/ttü-it-maja-daily")
         vikorpusdailymenu = dailyparser.get_pdfalt_menu("http://www.daily.ee/files/dn_daily_nadalamenuu_ttu_6_korpus.pdf")
-        # testing out if auto commit works
+        # testing out if auto commit works 2
         return {"Bitstop" : bitstopmenu,
                 "Rahvatoit": rahvatoitmenu,
                 "IT Daily": itdailymenu,
