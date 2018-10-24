@@ -53,10 +53,24 @@ class VIKorpusDaily(Resource):
     def post(self):
         pass
 
+class AllMenus(Resource):
+    def get(self):
+        bitstopmenu = fbparser.get_fb_post(sub_url="/bitstopkohvik/posts/")
+        rahvatoitmenu = fbparser.get_fb_post(sub_url="/rahvatoitttu/posts/", numberOfPosts=1)
+        itdailymenu = dailyparser.get_daily_menu("https://päevapakkumised.ee/tallinn/ttü-it-maja-daily")
+        vikorpusdailymenu = dailyparser.get_pdfalt_menu("http://www.daily.ee/files/dn_daily_nadalamenuu_ttu_6_korpus.pdf")
+        return {"Bitstop" : bitstopmenu,
+                "Rahvatoit": rahvatoitmenu,
+                "IT Daily": itdailymenu,
+                "VI korpuse Daily": vikorpusdailymenu}
+    def post(self):
+        pass
+
 api.add_resource(BitStop, "/bitstop")
 api.add_resource(Rahvatoit, "/rahvatoit")
 api.add_resource(ITDaily, "/itdaily")
 api.add_resource(VIKorpusDaily, "/vidaily")
+api.add_resource(AllMenus, "/all")
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
