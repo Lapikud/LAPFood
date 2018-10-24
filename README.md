@@ -13,3 +13,15 @@ to create a new branch write `git checkout -b branchname`.
 to change branches write `git checkout branchname`.
 
 for example `git checkout develop`
+
+## How to start backend server for personal testing
+
+
+
+This program is meant to be started with python3
+
+`python wsgi.py` then access the site at http://localhost:5000
+
+If you have python2 and python3 then write
+
+`python3 wsgi.py`
