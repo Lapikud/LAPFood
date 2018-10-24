@@ -16,7 +16,11 @@ for example `git checkout develop`
 
 ## How to start backend server for personal testing
 
-
+Install dependencies
+```
+sudo apt-get install python3-pip
+pip3 install flask flask_restful bs4
+```
 
 This program is meant to be started with python3
 
