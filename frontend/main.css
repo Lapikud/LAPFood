@@ -1,0 +1,90 @@
+html {overflow: hidden;}
+body {margin: 0px;}
+div {margin: 0px;}
+p {margin: 0px;}
+header {margin: 0px;}
+#main {
+    white-space: nowrap;
+    overflow: hidden;
+    background: black;
+    width: 125%;
+}
+
+#header {
+    color: antiquewhite;
+    background: black;
+    font-family: Arial, Gadget, sans-serif;
+    height: 3vw;
+    padding-left: 2.5vw;
+    padding: 2.5vh;
+    line-height: 3vw;
+    font-size: 5vw;
+    text-align: center;
+}   
+
+.menu {
+    color: antiquewhite;
+    font-family: Arial, Gadget, sans-serif;
+    background-position: center;
+    background-size: cover;
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    overflow: hidden;
+    width: 19%;
+    margin: 0px 0.5%;
+    height: 100vh;
+    
+}
+
+table {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background: rgba(0,0,0,0.85); /*//border//*/
+    font-size: 1.3vw;
+    z-index: 1;
+    border-spacing: 0 2px;
+
+}
+
+.title {
+    position: relative;
+    background: rgba(0,0,0,0.95);
+    font-size: 3vh;
+    height: 8vh;
+    line-height: 8vh;
+    z-index: 2;
+}
+
+.category {
+    color: black;
+    background: rgba(255,160,0,0.5);
+    padding: 6px 8px;
+}
+
+.foods {
+    text-align: left;
+    background: rgba(0,0,0,0.5);
+    padding: 4px 8px;
+    width: 100%;
+
+}
+
+.price {
+    text-align: right;
+    background: rgba(0,0,0,0.5);
+    padding: 4px 8px;
+
+}
+
+.breakfast {
+    //background: darkred;
+    opacity: 0.9;
+    z-index: 0;
+}
+.bitStop {
+    color: darkorange;
+}
